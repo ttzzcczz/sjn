@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css">
+  <style>
+    #logo {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 1000;
+    }
+
+    body {
+      background-color: black;
+      /* تغيير لون الخلفية إلى الأسود */
+      margin: 0;
+      overflow: hidden; /* لمنع ظهور أي أشرطة تمرير */
+    }
+
+    /* تحديد حجم الفيديو بحجم الصفحة بالكامل */
+    .op-player__media {
+      width: 100vw;
+      height: 100vh;
+    }  </style>
+</head>
+
+<body>
+  <img id="logo"
+    src="https://blogger.googleusercontent.com/img/a/AVvXsEic2RnnzrmE0rJab7bXL8YaV73o3yiQAmfdl8LF-frVd95nTD6iPseHvjNXYoVCUpqbpyJHBNLd6XvUWIetyBrcreK88ds_v8NO-cu8edR1NAPRly3UnkTEhfIFTgGc4_2bujRbq-QZBfxrk4rK9xCOMiYOzvCy-l5mesres2kuMVhMzI283DjGPOGJAQ=s150"
+    alt="Your Logo" />
+  <video class="op-player__media" id="player" controls playsinline>
+    <source
+      src="https://www.yacoline.com/upload/videos/2024/03/UvSLCpqea9x1lw4hyfpH_06_bb50c2ab5956259febfe79073a30a3a8_video_720p_converted.mp4"
+      title="720p" type="video/mp4" />
+    <source
+      src="https://www.yacoline.com/upload/videos/2024/03/UvSLCpqea9x1lw4hyfpH_06_bb50c2ab5956259febfe79073a30a3a8_video_540p_converted.mp4"
+      title="540p" type="video/mp4" />
+    <source
+      src="https://www.yacoline.com/upload/videos/2024/03/UvSLCpqea9x1lw4hyfpH_06_bb50c2ab5956259febfe79073a30a3a8_video_360p_converted.mp4"
+      title="360p" type="video/mp4" />
+    <source
+      src="https://www.yacoline.com/upload/videos/2024/03/UvSLCpqea9x1lw4hyfpH_06_bb50c2ab5956259febfe79073a30a3a8_video_224p_converted.mp4"
+      title="224p" type="video/mp4" />
+  </video>
+  <script src="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.js"></script>
+  <script>
+    const player = new OpenPlayerJS('player', {
+      startTime: 0,
+      startVolume: .5,
+      controls: {
+        layers: {
+          left: ['play', 'time', 'volume'],
+          middle: ['progress'],
+          right: ['levels', 'captions', 'settings', 'fullscreen']
+        }
+      },
+      poster: "https://morb3.com/wp-content/uploads/2020/04/319-hd%D8%B5%D9%88%D8%B1-%D8%AE%D9%84%D9%81%D9%8A%D8%A7%D8%AA-%D8%A7%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9-%D8%AF%D9%8A%D9%86%D9%8A%D8%A9-%D8%A7%D8%AF%D8%B9%D9%8A%D8%A9-%D9%84%D9%84%D9%85%D9%88%D8%A8%D8%A7%D9%8A%D9%84-%D8%A7%D9%8A%D9%81%D9%88%D9%86-%D9%85%D9%83%D8%AA%D9%88%D8%A8-%D8%B9%D9%84%D9%8A%D9%87%D8%A7-%D8%B9%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%B1%D8%AC-%D8%AF%D8%B9%D8%A7%D8%A1-%D8%A7%D9%84%D9%88%D8%A8%D8%A7%D8%A1-%D9%84%D9%84%D9%88%D8%A7%D8%AA%D8%B3-%D9%84%D9%84%D9%81%D9%8A%D8%B3-%D9%85%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%AF%D8%B9%D8%A7%D8%A1-724x1024.jpg",
+      forward: true,
+      contextMenu: ['autoQuality'] // إضافة خاصية Auto Quality إلى قائمة السياق
+    });
+    player.init();
+
+    // منع قائمة السياق الافتراضية عند النقر بالزر الأيمن
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
+</body>
+
+</html>

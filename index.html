@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Series Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        li {
+            margin: 10px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        a:hover {
+            background-color: #8b0000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <script>
+            for (let i = 1; i <= 30; i++) {
+                document.write(`<li><a href="index/sjn(${i}).html">sjn ${i}</a></li>`);
+            }
+        </script>
+    </ul>
+</body>
+</html>
